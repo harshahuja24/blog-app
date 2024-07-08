@@ -1,0 +1,17 @@
+<div class="login-details">
+  <div class="login-container">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submit()">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required formControlName="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required formControlName="password">
+      </div>
+      <p *ngIf="isValidLogin">Login Will Be Successful!</p>
+      <button type="submit" class="btn" >Login</button>
+    </form>
+  </div>
+</div>
