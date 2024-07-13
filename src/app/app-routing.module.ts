@@ -7,6 +7,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ViewAllBlogsComponent } from './blog/view-all-blogs/view-all-blogs.component';
 import { ViewSingleBlogComponent } from './blog/view-single-blog/view-single-blog.component';
 import { HomeComponent } from './home/home.component';
+import { ToastTestComponent } from './toast-test/toast-test.component';
 
 const routes: Routes = [
    {
@@ -40,7 +41,7 @@ const routes: Routes = [
     },
     {
       path:'**',
-      component:HomeComponent
+      component:ToastTestComponent
     }
 ];
 

@@ -10,11 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastTestComponent } from './toast-test/toast-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ToastTestComponent,
 
   ],
   imports: [
