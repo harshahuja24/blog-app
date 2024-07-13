@@ -11,7 +11,7 @@ export class TestToastService {
 
   show(text:string, options:any={}){
 
-    this.toasts.push(text,...options)
+    this.toasts.push({text, ...options})
     
   }
   remove(text:string){

@@ -14,7 +14,7 @@ export class ToastTestComponent {
   }
 
   addToast(){
-    this.toastTest.show('SuccessFully Logined', { classname:'bg-success', delay:5000 })
+    this.toastTest.show('SuccessFully Logined', { className:'bg-success', delay:5000 })
   }
 
 
