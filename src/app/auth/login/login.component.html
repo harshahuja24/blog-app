@@ -10,8 +10,9 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required formControlName="password">
       </div>
-      <p *ngIf="isValidLogin">Login Will Be Successful!</p>
       <button type="submit" class="btn" >Login</button>
+      <p *ngIf="!isValidLogin" class="text-danger" >Login Failed!</p>
+
     </form>
   </div>
 </div>

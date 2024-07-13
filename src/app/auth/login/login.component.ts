@@ -11,15 +11,16 @@ export class LoginComponent implements OnInit {
     username: new FormControl('', [Validators.required, Validators.minLength(4)]),
     password: new FormControl('', [Validators.required, Validators.minLength(4)])
   });
-  isValidLogin = false;
+  isValidLogin = true;
 
   ngOnInit() {
+    // this.validateLogin()
     // this.subscribeToUsernameAndPassword();
   }
 
   submit() {
     console.log(this.loginForm.value);
-    this.validateLogin();
+    this.validateLogin()
     this.loginForm.reset();
   }
 
@@ -32,21 +33,19 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.get('username')?.value;
     const password = this.loginForm.get('password')?.value;
 
-    console.log("hello")
-
     let users = JSON.parse(localStorage.getItem("users") ?? "[]");
     console.log(users)
     for (let user of users) {
-      if (user.username === username && user.password === password) {
-        console.log("helo")
-        console.log("Valid user ")
+      if (user.username !== username || user.password !== password) {
+
+        this.isValidLogin = false;
+        
+      }
+      else{
         this.isValidLogin = true;
         break
       }
     
     }
-
-    
-    this.isValidLogin = false;
   }
 }
