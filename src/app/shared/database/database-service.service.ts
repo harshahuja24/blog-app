@@ -40,4 +40,7 @@ export class DatabaseServiceService {
     
   ]
 
+  blogs:any = JSON.parse(localStorage.getItem("blogs") ?? "[]")
+  blogCount = this.blogs.length
+
 }

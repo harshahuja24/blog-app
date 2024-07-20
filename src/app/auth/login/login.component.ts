@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseServiceService } from 'src/app/shared/database/database-service.service';
+import { Category } from 'src/app/shared/interfaces/category.interface';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router, private databaseService: DatabaseServiceService){
 
   }
+
 
   ngOnInit() {
     // this.validateLogin()
@@ -60,7 +62,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("loggedInUserId", this.loggedInUserId.toString())
         this.router.navigate(['/home'])
 
-        }
+      }
 
   }
 

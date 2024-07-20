@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DatabaseServiceService } from 'src/app/shared/database/database-service.service';
+import { Category } from 'src/app/shared/interfaces/category.interface';
 
 @Component({
   selector: 'app-create',
@@ -14,9 +16,29 @@ export class CreateComponent {
     description: new FormControl()
 
   })
+  constructor(private databaseService:DatabaseServiceService){
+    
+  }
+
+  category:Category[] = this.databaseService.category;
 
   submit(){
     console.log(this.createForm.value)
+
+    const blogsData = this.generateDataModel()
+    this.databaseService.blogs.push(blogsData)
+    localStorage.setItem("blogs",JSON.stringify(this.databaseService.blogs));
+    this.createForm.reset()
+  }
+
+  private generateDataModel(){
+    return {
+      id:++this.databaseService.blogCount,
+      authorId: this.databaseService.loggedInUserId,
+      noOfLikes:0,
+      activeYN:1,
+      ...this.createForm.value
+    }
   }
 
 }
