@@ -1,1 +1,24 @@
-<p>create works!</p>
+
+
+<div class="create-blog">
+
+    <div class="create-blogs-container">
+    <h2>Create Blogs</h2>
+    <form class="create-blog-form"  [formGroup]="createForm" (ngSubmit)="submit()">
+        <label for="blog-title">Blog Title:</label>
+        <input type="text" id="blog-title" name="blog-title" formControlName="title">
+
+        <label for="blog-category">Category:</label>
+        <select id="blog-category" name="blog-category" formControlName="category">
+            <option value="category1">Category 1</option>
+            <option value="category2">Category 2</option>
+            <option value="category3">Category 3</option>
+        </select>
+
+        <label for="blog-content">Blog Content:</label>
+        <textarea id="blog-content" name="blog-content" rows="10" formControlName="description"></textarea>
+
+        <button type="submit">Create Blog</button>
+    </form>
+</div>
+</div>

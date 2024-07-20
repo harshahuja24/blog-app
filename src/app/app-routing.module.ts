@@ -40,6 +40,11 @@ const routes: Routes = [
       component:HomeComponent
     },
     {
+      path:'create-blogs',
+      component:CreateComponent
+
+    },
+    {
       path:'**',
       component:ToastTestComponent
     }

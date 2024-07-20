@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
     username: new FormControl('', [Validators.required, Validators.minLength(4)]),
     password: new FormControl('', [Validators.required, Validators.minLength(4)])
   });
-  isValidLogin = true;
+  isValidLogin:boolean = true;
+  
 
   ngOnInit() {
     // this.validateLogin()
@@ -47,5 +48,12 @@ export class LoginComponent implements OnInit {
       }
     
     }
+      if(this.isValidLogin){
+          // this.route.navigate('/home')
+
+        }
+
   }
+
+  
 }
