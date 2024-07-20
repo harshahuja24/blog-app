@@ -24,10 +24,6 @@ const routes: Routes = [
    },
 
     {
-      path:'create',
-      component:CreateComponent
-    },
-    {
       path:'view-all-blogs',
       component:ViewAllBlogsComponent
     },
