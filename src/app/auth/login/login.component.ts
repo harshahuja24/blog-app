@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DatabaseServiceService } from 'src/app/shared/database/database-service.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,11 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(4)])
   });
   isValidLogin:boolean = true;
+  loggedInUserId!: any;
   
+  constructor(private router:Router, private databaseService: DatabaseServiceService){
+
+  }
 
   ngOnInit() {
     // this.validateLogin()
@@ -44,12 +50,15 @@ export class LoginComponent implements OnInit {
       }
       else{
         this.isValidLogin = true;
+        this.loggedInUserId=user.id
         break
       }
     
     }
       if(this.isValidLogin){
-          // this.route.navigate('/home')
+        this.databaseService.loggedInUserId = this.loggedInUserId;
+        localStorage.setItem("loggedInUserId", this.loggedInUserId.toString())
+        this.router.navigate(['/home'])
 
         }
 

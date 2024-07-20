@@ -27,10 +27,17 @@ export class DatabaseServiceService {
       name:"Technology",
       activeYN:true,
     },
-    // {
-    //   id:3,
-    //   name:""
-    // }
+    {
+      id:3,
+      name:"News",
+      activeYN:true,
+    },
+    {
+      id:4,
+      name:"Education",
+      activeYN:true,
+    },
+    
   ]
 
 }
