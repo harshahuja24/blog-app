@@ -1,1 +1,38 @@
-<p>view-all-blogs works!</p>
+<!-- <nav>
+    <ul>
+        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#"><i class="fas fa-tv"></i> TV</a></li>
+        <li><a href="#"><i class="fas fa-book"></i> Magazine</a></li>
+        <li><a href="#"><i class="fas fa-graduation-cap"></i> Best Colleges</a></li>
+        <li><a href="#"><i class="fas fa-glass-cheers"></i> Life+Style</a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> India</a></li>
+        <li><a href="#"><i class="fas fa-compass"></i> South</a></li>
+        <li><a href="#"><i class="fas fa-globe"></i> World</a></li>
+        <li><a href="#"><i class="fas fa-chart-line"></i> Business</a></li>
+        <li><a href="#"><i class="fas fa-futbol"></i> All Sports</a></li>
+        <li><a href="#"><i class="fas fa-microchip"></i> Technology</a></li>
+    </ul>
+</nav> -->
+<main>
+    <section class="news-category" *ngFor="let blog of blogs">
+        <h2>{{getCategoryFromCategoryid(blog.id)}}</h2>
+        <article class="news-item" style=" position: relative;top: -20px;">
+            <div class="news-content">
+                <h3>{{blog.title}}</h3>
+                <p>{{blog.description}}</p>
+                <div class="post-actions">
+                    <button class="like-btn"><i class="far fa-thumbs-up"></i> &nbsp;{{blog.noOfLikes}}</button>
+                    <button class="comment-btn"><i class="far fa-comment"></i> 11</button>
+                    <button><i class="far fa-bookmark"></i></button>
+                    <button><i class="fas fa-share"></i></button>
+                </div>
+                <div class="comment-section" style="display: none;">
+                    <textarea placeholder="Add a comment..."></textarea>
+                    <button class="submit-comment">Post</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <img src="https://picsum.photos/600/300" alt="News Image" class="news-image">
+        </article>
+    </section>
+</main>
