@@ -1,1 +1,91 @@
-<p>profile works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="assets/Images/pic.png" class="rounded-circle profile-pic mb-3 " alt="Profile Picture">
+        <h2 class="profile-name">Daphne</h2>
+        <p class="profile-bio">Web Developer</p>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Bio</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque urna non urna efficitur, nec varius magna hendrerit. Curabitur pulvinar.</p>
+          </div>
+        </div>
+  
+        <!-- Tabs for My Blogs and Saved Blogs -->
+        <ul class="nav nav-tabs" id="profileTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="my-blogs-tab" data-toggle="tab" href="#my-blogs" role="tab" aria-controls="my-blogs" aria-selected="true">My Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="saved-blogs-tab" data-toggle="tab" href="#saved-blogs" role="tab" aria-controls="saved-blogs" aria-selected="false">Saved Blogs</a>
+          </li>
+        </ul>
+  
+        <div class="tab-content" id="profileTabContent">
+          <div class="tab-pane fade show active" id="my-blogs" role="tabpanel" aria-labelledby="my-blogs-tab">
+            <div class="row">
+              <!-- My Blogs content here -->
+              <div class="col-md-6 mb-3" *ngFor="let blog of myBlogs">
+                <div class="card">
+                  <img src="assets/Images/image1.png" class="card-img-top w-100 blog-img" alt="Blog Post 1">
+                  <div class="card-body">
+                    <h5 class="card-title">{{blog.title}}</h5>
+                    <p class="card-text">{{blog.description}}</p>
+                    <button type="button" class="btn btn-link">Read more</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane fade show" id="saved-blogs" role="tabpanel" aria-labelledby="saved-blogs-tab">
+            <div class="row">
+              <!-- Saved Blogs content here -->
+              <div class="col-md-6 mb-3">
+                <div class="card">
+                  <img src="assets/Images/card.png" class="card-img-top w-100 blog-img" alt="Saved Blog 1">
+                  <div class="card-body">
+                    <h5 class="card-title">Inscribed Moments</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eveniet consectetur dicta, nam unde rem iste fuga temporibus quas laudantium.</p>
+                    <button type="button" class="btn btn-link">Read more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="card">
+                  <img src="assets/Images/card2.png" class="card-img-top w-100 blog-img" alt="Saved Blog 2">
+                  <div class="card-body">
+                    <h5 class="card-title">Spirited Squad</h5>
+                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis quidem maiores nisi veniam quos amet debitis laudantium ab aliquam inventore.</p>
+                    <button type="button" class="btn btn-link">Read more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="card">
+                  <img src="assets/Images/card3.png" class="card-img-top w-100 blog-img" alt="Saved Blog 3">
+                  <div class="card-body">
+                    <h5 class="card-title">Paws and Poses</h5>
+                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non veritatis minima quos soluta hic totam asperiores harum deleniti tempore mollitia.</p>
+                    <button type="button" class="btn btn-link">Read more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="card">
+                  <img src="assets/Images/card4.png" class="card-img-top w-100 blog-img" alt="Saved Blog 4">
+                  <div class="card-body">
+                    <h5 class="card-title">Submerged Tranquility</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem blanditiis error eius possimus sunt unde odit a distinctio minima eum!</p>
+                    <button type="button" class="btn btn-link">Read more</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

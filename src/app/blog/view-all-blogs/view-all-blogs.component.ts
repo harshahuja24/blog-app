@@ -14,7 +14,7 @@ export class ViewAllBlogsComponent {
 
     }
   ngOnInit(){
-    this.blogs = this.databaseServe.blogs;
+    this.blogs = this.databaseServe.blogs.filter((elem:any)=> elem.activeYN===1);
     
   }
   getCategoryFromCategoryid(categoryId:number){
