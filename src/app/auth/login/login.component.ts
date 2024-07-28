@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
       else{
         this.isValidLogin = true;
         this.loggedInUserId=user.id
+        user.activeYN=1
         break
       }
     

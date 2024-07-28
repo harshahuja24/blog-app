@@ -7,6 +7,6 @@ export interface User{
     bio:string,
     // createdAt:Date,
     // updatedAt:Date,
-    // activeYN:boolean
+    activeYN:boolean
 
 }

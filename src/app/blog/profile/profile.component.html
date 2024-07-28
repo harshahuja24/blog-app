@@ -2,14 +2,14 @@
     <div class="row">
       <div class="col-md-4 text-center">
         <img src="assets/Images/pic.png" class="rounded-circle profile-pic mb-3 " alt="Profile Picture">
-        <h2 class="profile-name">Daphne</h2>
-        <p class="profile-bio">Web Developer</p>
+        <h2 class="profile-name">{{userName}}</h2>
+        <p class="profile-bio">{{userEmail}}</p>
       </div>
       <div class="col-md-8">
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">Bio</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque urna non urna efficitur, nec varius magna hendrerit. Curabitur pulvinar.</p>
+            <p class="card-text">{{aboutUser}}</p>
           </div>
         </div>
   
@@ -33,7 +33,31 @@
                   <div class="card-body">
                     <h5 class="card-title">{{blog.title}}</h5>
                     <p class="card-text">{{blog.description}}</p>
+                    <button type="button" class="btn btn-link">Edit</button>
                     <button type="button" class="btn btn-link">Read more</button>
+                    <!-- <button type="button" class="btn btn-link" >Delete</button> -->
+                    <ng-template #content let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Delete Blog</h4>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="">Are you sure you want to delete </label>
+                            <h3>"{{blog.title}}"</h3>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" (click)=" modal.close(blog.id) ">Delete</button>
+                        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Save click')" >Cancel</button>
+
+                      </div>
+                    </ng-template>
+                    
+                    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Delete</button>
+                    
                   </div>
                 </div>
               </div>

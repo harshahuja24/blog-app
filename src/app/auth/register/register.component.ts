@@ -80,6 +80,7 @@ export class RegisterComponent {
     let users={
       ...this.registerForm.value,
       id: this.databaseService.userCounter,
+      activeYn:0
     }
     this.databaseService.users.push(users)
 
