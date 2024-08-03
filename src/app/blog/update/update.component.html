@@ -1,0 +1,23 @@
+
+<div class="create-blog">
+
+    <div class="create-blogs-container">
+    <h2>Update Blogs</h2>
+    <form class="create-blog-form" [formGroup]="updateForm" (ngSubmit)="submit()">
+        <label for="blog-title">Blog Title:</label>
+        <input type="text" id="blog-title" name="blog-title" formControlName="title" >
+
+        <label for="blog-category">Category:</label>
+        <select id="blog-category" name="blog-category" formControlName="category" >
+            <option *ngFor="let category of category" [value]=category.id>{{category.name}}</option>
+            
+        </select>
+
+        <label for="blog-content">Blog Content:</label>
+        <textarea id="blog-content" name="blog-content" rows="10" formControlName="description"></textarea>
+
+        <button type="submit">Edit Blog</button>
+    </form>
+</div>
+</div> 
+

@@ -33,7 +33,7 @@
                   <div class="card-body">
                     <h5 class="card-title">{{blog.title}}</h5>
                     <p class="card-text">{{blog.description}}</p>
-                    <button type="button" class="btn btn-link">Edit</button>
+                    <a type="button" class="btn btn-link" [routerLink]="['/edit-blog',blog.id]">Edit</a>
                     <button type="button" class="btn btn-link">Read more</button>
                     <!-- <button type="button" class="btn btn-link" >Delete</button> -->
                     <ng-template #content let-modal>
