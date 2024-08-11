@@ -9,6 +9,7 @@ import { ViewSingleBlogComponent } from './blog/view-single-blog/view-single-blo
 import { HomeComponent } from './home/home.component';
 import { ToastTestComponent } from './toast-test/toast-test.component';
 import { UpdateComponent } from './blog/update/update.component';
+import { SavedComponent } from './auth/saved/saved.component';
 
 const routes: Routes = [
    {
@@ -43,6 +44,11 @@ const routes: Routes = [
     {
       path:'create-blogs',
       component:CreateComponent
+
+    },
+    {
+      path:'saved-blogs',
+      component:SavedComponent
 
     },
     {
