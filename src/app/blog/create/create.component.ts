@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { DatabaseServiceService } from 'src/app/shared/database/database-service.service';
 import { Category } from 'src/app/shared/interfaces/category.interface';
 
@@ -16,7 +17,7 @@ export class CreateComponent {
     description: new FormControl()
 
   })
-  constructor(private databaseService:DatabaseServiceService){
+  constructor(private databaseService:DatabaseServiceService, public router: RouterModule){
     
   }
 
@@ -29,6 +30,8 @@ export class CreateComponent {
     this.databaseService.blogs.push(blogsData)
     localStorage.setItem("blogs",JSON.stringify(this.databaseService.blogs));
     this.createForm.reset()
+    // this.router.navigate(['/profile'])
+
   }
 
   private generateDataModel(){

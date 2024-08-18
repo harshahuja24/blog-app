@@ -23,23 +23,56 @@ export class ViewAllBlogsComponent {
     const category = this.helperService.getCategoryById(+categoryId) // why did we add + because undefined aara tha and a string was being passed jabke waha strict type checking hora hai so we add + to typecast that as a number 
     return category?.name
   }
+  // saveBlogUser = this.databaseServe.savedBlogsDetails
   saveBlogs(id:number){
-    console.log(id)
-    let tobeSaved = this.databaseServe.blogs.find((elem:any)=> elem.id === id)
+    // console.log(id)
+    // let loginUser = +this.databaseServe.loggedInUserId
+    // let tobeSaved = this.databaseServe.blogs.find((elem:any)=> elem.id === id)
+   
+    // this.databaseServe.savedBlogs.push(tobeSaved)
+    // localStorage.setItem('savedBlogs', JSON.stringify(this.databaseServe.savedBlogs))
 
-    this.databaseServe.savedBlogs.push(tobeSaved)
-    localStorage.setItem('savedBlogs', JSON.stringify(this.databaseServe.savedBlogs))
+    let obj = this.databaseServe.savedBlogsDetails
+    if(obj.hasOwnProperty(this.databaseServe.loggedInUserId)){
+      let arr = obj[this.databaseServe.loggedInUserId]
+      arr.push(id)
+    }
+    else{
+      let arr = [id]
+      obj[this.databaseServe.loggedInUserId] = arr;
+    }
+    console.log(obj)
+    localStorage.setItem('savedBlogsDetails', JSON.stringify(obj))
+
+
   }
+ 
+
+
   isSaved(id:number){
-    let temp = this.databaseServe.savedBlogs.filter((elem:any)=>elem.id === +id )
-    return temp.length > 0; 
+    // console.log(id)
+    
+    let temp = this.databaseServe.savedBlogsDetails[this.databaseServe.loggedInUserId]?.filter((elem:any)=>elem === +id )
+    // console.log(temp)
+    // console.log(this.databaseServe.savedBlogsDetails)
+    return temp?.length > 0; 
+   
+    
   }
   removeSavedBlog(id:number){
-    console.log(id)
+    // console.log(id)
 
-    let toBeRemovedIndex = this.databaseServe.savedBlogs.findIndex((elem:any)=> elem.id === id)
-    this.databaseServe.savedBlogs.splice(toBeRemovedIndex,1)
-    localStorage.setItem("savedBlogs",JSON.stringify(this.databaseServe.savedBlogs))
+    let arr = this.databaseServe.savedBlogsDetails[this.databaseServe.loggedInUserId]
+    // console.log(arr)
+    let toBeRemovedIndex = arr.findIndex((elem:any)=> elem === id)
+    console.log(toBeRemovedIndex)
+    arr.splice(toBeRemovedIndex,1);
+    // console.log(arr)
+    this.databaseServe.savedBlogsDetails[this.databaseServe.loggedInUserId] = arr
+    console.log(this.databaseServe.savedBlogsDetails)
+
+    // this.databaseServe.savedBlogsDetails.splice(toBeRemovedIndex,1)
+    localStorage.setItem("savedBlogsDetails",JSON.stringify(this.databaseServe.savedBlogsDetails))
 
     
 

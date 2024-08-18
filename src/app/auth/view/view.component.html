@@ -1,0 +1,51 @@
+<div class="tab-pane fade show active" id="my-blogs" role="tabpanel" aria-labelledby="my-blogs-tab">
+<div class="col-md-6 mb-3" *ngFor="let blog of blogs">
+    <div class="card">
+      <img src="assets/Images/image1.png" class="card-img-top w-100 blog-img" alt="Blog Post 1">
+      <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text">{{blog.description}}</p>
+        <a type="button" class="btn btn-link" [routerLink]="['/edit-blog',blog.id]">Edit</a>
+        <button type="button" class="btn btn-link">Read more</button>
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Delete Blog</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="">Are you sure you want to delete </label>
+                <h3>"{{blog.title}}"</h3>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)=" modal.close(blog.id) ">Delete</button>
+            <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Save click')" >Cancel</button>
+
+          </div>
+        </ng-template>
+        
+        <button class="btn btn-link" (click)="open(content)" *ngIf="controlVisibility">Delete</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="tab-pane fade show" id="saved-blogs" role="tabpanel" aria-labelledby="saved-blogs-tab">
+    <div class="row">
+      <div class="col-md-6 mb-3"  *ngFor="let blog of savedBlogs">
+        <div class="card">
+          <img src="assets/Images/card.png" class="card-img-top w-100 blog-img" alt="Saved Blog 1">
+          <div class="card-body">
+            <h5 class="card-title">{{blog.title}}</h5>
+            <p class="card-text">{{blog.description}}</p>
+            <button type="button" class="btn btn-link">Read more</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> -->

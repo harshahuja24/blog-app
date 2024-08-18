@@ -6,7 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { SavedComponent } from './saved/saved.component';
+import { ViewComponent } from './view/view.component';
 
 
 
@@ -15,20 +15,21 @@ import { SavedComponent } from './saved/saved.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    SavedComponent
+    ViewComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    RouterModule
+    RouterModule,
   ],
   exports:[
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
-    SavedComponent
+    ViewComponent
+
   ]
 })
 export class AuthModule { }

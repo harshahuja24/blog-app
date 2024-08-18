@@ -9,12 +9,16 @@ import { ViewSingleBlogComponent } from './blog/view-single-blog/view-single-blo
 import { HomeComponent } from './home/home.component';
 import { ToastTestComponent } from './toast-test/toast-test.component';
 import { UpdateComponent } from './blog/update/update.component';
-import { SavedComponent } from './auth/saved/saved.component';
 
 const routes: Routes = [
    {
     path:'login',
     component:LoginComponent
+   },
+   {
+    path:"blogs/:id",
+    component: ViewSingleBlogComponent
+
    },
    {
     path:'profile',
@@ -30,10 +34,6 @@ const routes: Routes = [
       component:ViewAllBlogsComponent
     },
     {
-      path:'view-single-blog',
-      component:ViewSingleBlogComponent
-    },
-    {
       path:'edit-blog/:id',
       component:UpdateComponent
     },
@@ -46,11 +46,7 @@ const routes: Routes = [
       component:CreateComponent
 
     },
-    {
-      path:'saved-blogs',
-      component:SavedComponent
-
-    },
+ 
     {
       path:'**',
       component:ToastTestComponent
