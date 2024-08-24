@@ -22,9 +22,6 @@ export class ViewComponent {
 
   
 
-  
-
-
 
   @Output()
   refresh = new EventEmitter();

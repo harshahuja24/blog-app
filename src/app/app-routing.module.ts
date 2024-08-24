@@ -15,37 +15,44 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent
    },
-   {
-    path:"blogs/:id",
-    component: ViewSingleBlogComponent
 
-   },
-   {
-    path:'profile',
-    component:ProfileComponent
-   },
    {
     path:'register',
     component:RegisterComponent
    },
 
     {
-      path:'view-all-blogs',
-      component:ViewAllBlogsComponent
-    },
-    {
-      path:'edit-blog/:id',
-      component:UpdateComponent
-    },
-    {
-      path:'home',
-      component:HomeComponent
-    },
-    {
-      path:'create-blogs',
-      component:CreateComponent
+      path:'',
+      component:HomeComponent,
+      children:[
+        
+        {
+          path:"blogs/:id",
+          component: ViewSingleBlogComponent
 
+        },
+        {
+          path:'profile',
+          component:ProfileComponent
+        },
+
+          {
+            path:'view-all-blogs',
+            component:ViewAllBlogsComponent
+          },
+          {
+            path:'edit-blog/:id',
+            component:UpdateComponent
+          },
+          {
+            path:'create-blogs',
+            component:CreateComponent
+
+          },
+
+      ]
     },
+   
  
     {
       path:'**',

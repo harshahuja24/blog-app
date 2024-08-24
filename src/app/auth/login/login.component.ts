@@ -61,8 +61,9 @@ export class LoginComponent implements OnInit {
       if(this.isValidLogin){
         this.databaseService.loggedInUserId = this.loggedInUserId;
         localStorage.setItem("loggedInUserId", this.loggedInUserId.toString())
-        this.router.navigate(['/home'])
-
+        console.log(this.databaseService.users)
+        localStorage.setItem("users",JSON.stringify(this.databaseService.users))
+        this.router.navigate([''])
       }
 
   }

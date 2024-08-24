@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DatabaseServiceService } from 'src/app/shared/database/database-service.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterComponent {
   isValidPassword = true;
   isValidUsername = true;
 
-  constructor(private databaseService:DatabaseServiceService){
+  constructor(private databaseService:DatabaseServiceService, private router:Router){
 
   }
   ngOnInit(){ 
@@ -80,13 +81,14 @@ export class RegisterComponent {
     let users={
       ...this.registerForm.value,
       id: this.databaseService.userCounter,
-      activeYn:0
+      activeYN:0
     }
     this.databaseService.users.push(users)
 
     // Local storage needs key and value both as string..!
     localStorage.setItem("users",JSON.stringify(this.databaseService.users))
     this.registerForm.reset();
+    this.router.navigate(['/login'])
   }
 
 

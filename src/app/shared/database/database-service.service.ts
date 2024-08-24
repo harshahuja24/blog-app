@@ -45,5 +45,7 @@ export class DatabaseServiceService {
 
   savedBlogsDetails:any = JSON.parse(localStorage.getItem("savedBlogsDetails") ?? "{}")
 
+  likedBlogsDetails:any = JSON.parse(localStorage.getItem("likedBlogsDetails") ?? "{}")
+
 
 }

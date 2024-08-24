@@ -21,7 +21,8 @@
                 <h3>{{blog.title}}</h3>
                 <p>{{blog.description}}</p>
                 <div class="post-actions">
-                    <button class="like-btn"><i class="far fa-thumbs-up"></i> &nbsp;{{blog.noOfLikes}}</button>
+                    <button class="like-btn" *ngIf="!isLiked(blog.id)" (click)="likedBlog(blog.id)"><i class="far fa-thumbs-up"></i> &nbsp;{{blog.noOfLikes}}</button>
+                    <button class="like-btn" *ngIf="isLiked(blog.id)" (click)="removeLikedBlog(blog.id)"><i class="fa-solid fa-thumbs-up"></i> &nbsp;{{blog.noOfLikes}}</button>
                     <button class="comment-btn"><i class="far fa-comment"></i> 11</button>
                     <button  (click)="saveBlogs(blog.id)"    *ngIf="!isSaved(blog.id)" ><i class="far fa-bookmark"></i></button>
                     <button   *ngIf="isSaved(blog.id)"  (click)="removeSavedBlog(blog.id)"><i class=" far fa-solid fa-bookmark"></i></button>

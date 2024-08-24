@@ -20,16 +20,17 @@
   
       <footer class="post-footer">
         <div class="social-actions">
-          <button class="action-btn like-btn" aria-label="Like this post">
-           <i class="far fa-thumbs-up"></i> Like
-        </button>
-          <button class="action-btn share-btn" aria-label="Share this post">
+          <button class="action-btn like-btn" aria-label="Like this post" *ngIf="!isLiked(blog.id)" (click)="likedBlog(blog.id)"><i class="far fa-thumbs-up"></i> &nbsp;1</button>
+          <button class="action-btn like-btn" aria-label="Like this post" *ngIf="isLiked(blog.id)" (click)="removeLikedBlog(blog.id)"><i class="far fa-thumbs-up fa-solid"></i> &nbsp;0</button>
+          <button class="action-btn share-btn" aria-label="Share this post" >
             <i class="far fa-comment"></i> Comment
           </button>
-          <button class="action-btn save-btn" aria-label="Save this post">
-            <i class="far fa-bookmark"></i> Save
+          <button class="action-btn save-btn" aria-label="Save this post"  (click)="saveBlogs(blog.id)"  *ngIf="!isSaved(blog.id)" >
+            <i class="far fa-bookmark" ></i> Save
           </button>
-
+          <button class="action-btn save-btn" aria-label="Save this post"  (click)="removeSavedBlog(blog.id)"  *ngIf="isSaved(blog.id)" >
+            <i class="far fa-bookmark fa-solid" ></i> Save
+          </button>
           <button class="action-btn save-btn" aria-label="Save this post">
             <i class="fas fa-share"></i> Share
           </button>

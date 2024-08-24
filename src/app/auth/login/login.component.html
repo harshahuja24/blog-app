@@ -12,7 +12,9 @@
       </div>
       <button type="submit" class="btn" >Login</button>
       <p *ngIf="!isValidLogin" class="text-danger" >Login Failed!</p>
-
     </form>
+    <br>
+    <button class="btn" [routerLink]="['/register']">New User??</button>
+
   </div>
 </div>
