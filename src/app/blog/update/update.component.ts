@@ -19,7 +19,9 @@ export class UpdateComponent {
   updateForm = new FormGroup({
     title: new FormControl(),
     category: new FormControl(),
-    description: new FormControl()
+    description: new FormControl(),
+    imageUrl: new FormControl(),
+    updatedAt: new FormControl()
   })
 
   subscribeToParams(){
@@ -32,13 +34,31 @@ export class UpdateComponent {
     })
   
   }
+  filename:any;
 
+  onSelectedFiles(event:any){
+     this.filename = event.target.files[0].name;
+    console.log(this.filename)
+
+    this.updateForm.patchValue({
+      imageUrl:this.filename
+    })
+
+   
+    
+  }
 
   updateBlog(blog:any){
+
+    let currentDate = new Date()
+
     this.updateForm.setValue({
       title:blog.title,
       category:blog.category,
-      description: blog.description
+      description: blog.description,
+      imageUrl:this.filename,
+      updatedAt: currentDate
+
 
     })
       

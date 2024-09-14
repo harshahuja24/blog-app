@@ -13,6 +13,12 @@
             <option *ngFor="let category of category" [value]=category.id>{{category.name}}</option>
             
         </select>
+        <label for="blog-image">Image</label>
+        <input type="file" id="blog-img" name="blog-img" (change)="onSelectedFiles($event)" >
+        <!-- in html u can add a multiple attribute to specify number of files to take in input  -->
+         <!-- when event is fired uska obj banega and it that target will return the reference of it jismie u will have the file ka value  -->
+
+
 
         <label for="blog-content">Blog Content:</label>
         <textarea id="blog-content" name="blog-content" rows="10" formControlName="description"></textarea>

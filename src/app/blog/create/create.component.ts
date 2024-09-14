@@ -14,7 +14,10 @@ export class CreateComponent {
   createForm= new FormGroup({
     title: new FormControl(),
     category: new FormControl(),
-    description: new FormControl()
+    description: new FormControl(),
+    imageUrl: new FormControl(),
+    createdAt: new FormControl(),
+    updatedAt: new FormControl()
 
   })
   constructor(private databaseService:DatabaseServiceService, public router: Router){
@@ -23,8 +26,28 @@ export class CreateComponent {
 
   category:Category[] = this.databaseService.category;
 
+  onSelectedFiles(event:any){
+    let filename = event.target.files[0].name;
+    console.log(filename)
+
+    this.createForm.patchValue({
+      imageUrl:filename
+    })
+
+   
+    
+  }
+
   submit(){
+
+    let currentTime = new Date()
+    this.createForm.patchValue({
+      createdAt: currentTime,
+      updatedAt: currentTime
+    })
     console.log(this.createForm.value)
+
+    
 
     const blogsData = this.generateDataModel()
     this.databaseService.blogs.push(blogsData)

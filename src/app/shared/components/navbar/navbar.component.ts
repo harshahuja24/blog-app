@@ -21,7 +21,7 @@ export class NavbarComponent {
   isloggedIn(){
 
     this.isLoginCheck = this.databaseService.loggedInUserId
-    console.log(this.isLoginCheck)
+    // console.log(this.isLoginCheck)
     return this.isLoginCheck;
 
 
