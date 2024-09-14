@@ -11,53 +11,53 @@ import { ToastTestComponent } from './toast-test/toast-test.component';
 import { UpdateComponent } from './blog/update/update.component';
 
 const routes: Routes = [
-   {
-    path:'login',
-    component:LoginComponent
-   },
-
-   {
-    path:'register',
-    component:RegisterComponent
-   },
-
-    {
-      path:'',
-      component:HomeComponent,
-      children:[
-        
-        {
-          path:"blogs/:id",
-          component: ViewSingleBlogComponent
-
-        },
-        {
-          path:'profile',
-          component:ProfileComponent
-        },
-
-          {
-            path:'view-all-blogs',
-            component:ViewAllBlogsComponent
-          },
-          {
-            path:'edit-blog/:id',
-            component:UpdateComponent
-          },
-          {
-            path:'create-blogs',
-            component:CreateComponent
-
-          },
-
-      ]
-    },
-   
- 
-    {
-      path:'**',
-      component:ToastTestComponent
-    }
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login - BlogApp' }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: { title: 'Register - BlogApp' }
+  },
+  {
+    path: '',
+    component: HomeComponent,
+    data: { title: 'Home - BlogApp' },
+    children: [
+      {
+        path: 'blogs/:id',
+        component: ViewSingleBlogComponent,
+        data: { title: 'View Blog - BlogApp' }
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        data: { title: 'Profile - BlogApp' }
+      },
+      {
+        path: 'view-all-blogs',
+        component: ViewAllBlogsComponent,
+        data: { title: 'All Blogs - BlogApp' }
+      },
+      {
+        path: 'edit-blog/:id',
+        component: UpdateComponent,
+        data: { title: 'Edit Blog - BlogApp' }
+      },
+      {
+        path: 'create-blogs',
+        component: CreateComponent,
+        data: { title: 'Create Blog - BlogApp' }
+      },
+    ]
+  },
+  {
+    path: '**',
+    component: ToastTestComponent,
+    data: { title: '404 - Page Not Found' }
+  }
 ];
 
 @NgModule({
