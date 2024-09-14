@@ -31,30 +31,66 @@ export class ProfileComponent {
      
   // console.log("hey");
 
-  getMyBlogs(){
-    this.myBlogs = this.databaseService.blogs.filter((elem:any)=> elem.authorId === this.databaseService.loggedInUserId && elem.activeYN===1)
-    // console.log("Saved Blogs ",this.savedBlogs)
-  }
-  getSavedBlogs(){
-    // let savedBlogsDetails = this.databaseService.savedBlogsDetails
-    // for(let i=0; i<savedBlogsDetails[this.databaseService.loggedInUserId].length; i++){
-    //   // console.log(savedBlogsDetails[i]);
-    //   console.log(savedBlogsDetails[1][i])
-            
-    //   for(let j=0; j<this.databaseService.blogCount; j++){
-    //     // console.log(this.myBlogs[j].id)
-    //     if(this.databaseService.blogs[j]?.id == savedBlogsDetails[this.databaseService.loggedInUserId][i]){
-    //       console.log(this.myBlogs[j])
-    //       this.savedBlogs.push(this.myBlogs[j]);
-    //     }
-    //   }
-    // }
-    // console.log(this.savedBlogs);
+  // getMyBlogs(){
+  //   this.myBlogs = this.databaseService.blogs.filter((elem:any)=> elem.authorId === this.databaseService.loggedInUserId && elem.activeYN===1)
+  //   // console.log("Saved Blogs ",this.savedBlogs)
+  // }
 
-    let savedBlogsDetails = this.databaseService.savedBlogsDetails
-     let arr = savedBlogsDetails[this.databaseService.loggedInUserId]
-     this.savedBlogs = this.databaseService.blogs.filter((elem:any)=> arr.includes(elem.id ) && elem.activeYN===1);
+  getMyBlogs() {
+    if (!this.databaseService.blogs || !this.databaseService.loggedInUserId) {
+      console.error('Blogs data or logged in user ID is not available');
+      return;
+    }
+
+    this.myBlogs = this.databaseService.blogs.filter((elem: any) => 
+      elem.authorId === this.databaseService.loggedInUserId && elem.activeYN === 1
+    );
+
+    console.log('My Blogs:', this.myBlogs);
+  }
+  // getSavedBlogs(){
+  //   // let savedBlogsDetails = this.databaseService.savedBlogsDetails
+  //   // for(let i=0; i<savedBlogsDetails[this.databaseService.loggedInUserId].length; i++){
+  //   //   // console.log(savedBlogsDetails[i]);
+  //   //   console.log(savedBlogsDetails[1][i])
+            
+  //   //   for(let j=0; j<this.databaseService.blogCount; j++){
+  //   //     // console.log(this.myBlogs[j].id)
+  //   //     if(this.databaseService.blogs[j]?.id == savedBlogsDetails[this.databaseService.loggedInUserId][i]){
+  //   //       console.log(this.myBlogs[j])
+  //   //       this.savedBlogs.push(this.myBlogs[j]);
+  //   //     }
+  //   //   }
+  //   // }
+  //   // console.log(this.savedBlogs);
+
+  //   let savedBlogsDetails = this.databaseService.savedBlogsDetails
+  //    let arr = savedBlogsDetails[this.databaseService.loggedInUserId]
+  //    this.savedBlogs = this.databaseService.blogs.filter((elem:any)=> arr.includes(elem.id ) && elem.activeYN===1);
     
+  // }
+
+  getSavedBlogs() {
+    const savedBlogsDetails = this.databaseService.savedBlogsDetails;
+    const loggedInUserId = this.databaseService.loggedInUserId;
+  
+    if (!savedBlogsDetails || !loggedInUserId) {
+      console.error('savedBlogsDetails or loggedInUserId is undefined');
+      this.savedBlogs = [];
+      return;
+    }
+  
+    const arr = savedBlogsDetails[loggedInUserId];
+  
+    if (!arr || !Array.isArray(arr)) {
+      console.error('No saved blogs found for the current user');
+      this.savedBlogs = [];
+      return;
+    }
+  
+    this.savedBlogs = this.databaseService.blogs.filter((elem: any) => 
+      arr.includes(elem.id) && elem.activeYN === 1
+    );
   }
   // savedBlogs = this.databaseService.savedBlogs;
 

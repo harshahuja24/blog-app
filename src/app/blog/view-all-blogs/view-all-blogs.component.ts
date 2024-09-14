@@ -135,5 +135,9 @@ export class ViewAllBlogsComponent {
 
   }
 
+  getImageUrl(name:any){
+    return 'assets/Images/uploads/'+name;
+  }
+
 
 }
